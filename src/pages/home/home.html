@@ -1,18 +1,30 @@
 <ion-header>
+
   <ion-navbar>
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+    <ion-icon name="md-arrow-back"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Buscador de videos</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
+
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <ion-row>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-col text-center col-12 col-md-6 offset-md-3>
+      <img src="https://www.telered.com.ar/img/iconos_app_buscador_400_06.png">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label stacked>Ingrese el nombre de la pelicula</ion-label>
+        <ion-input color="primary" clearInput></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <button ion-button block (click)="entrar();" uppercase [disabled]="buscandoPeliculas">Buscar</button>
 </ion-content>

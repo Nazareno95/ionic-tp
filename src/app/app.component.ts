@@ -2,9 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+//import {LoginPage} from "../pages/login/login";
 
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,17 +11,28 @@ import { ListPage } from '../pages/list/list';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  private localStorage: Storage;
+  rootPage: any;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    this.localStorage = window.localStorage;
+
+    let isLogged = this.localStorage.getItem('logged');
+    if (isLogged) {
+      this.rootPage = 'home';
+    }
+    else {
+      this.rootPage = 'login';
+    }
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Home', component: 'home' },
+      {title: 'Setting', component: 'setting'},
+      {title: 'Favorito', component: 'favorito',}
     ];
 
   }
@@ -41,4 +51,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+  //logout() {
+  //  this.nav.setRoot(LoginPage);
+  //}
 }

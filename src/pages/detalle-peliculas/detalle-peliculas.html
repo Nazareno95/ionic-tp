@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title>Detalle de la película</ion-title>
+    <ion-buttons left>
+      <button ion-button (click)="cerrarModal();">Regresar</button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2 class="title" [innerText]="detallePeliculas?.Title"></h2>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-8 offset-2>
+        <img [src]="detallePeliculas?.Poster" [alt]="detallePeliculas?.Title">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
