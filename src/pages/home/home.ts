@@ -34,7 +34,7 @@ export class HomePage {
     console.log('ionViewDidLoad home');
   }
   public buscarPelicula(): void {
-    if (!this.datosBusqueda) {
+    if (!this.datosBusqueda.texto) {
       let toastError = this.toastCtrl.create({
         message: 'Ingrese texto por favor',
         duration: 1500,
@@ -46,7 +46,7 @@ export class HomePage {
     let loading = this.loadingCtrl.create({ content: 'Buscando Peliculas..' });
     loading.present();
     this.peliculasProvider.
-    buscarPelicula(this.datosBusqueda).then(
+    buscarPelicula(this.datosBusqueda.texto).then(
       (success) => { this.successBuscarPelicula(success, loading) },
       (error) => { this.errorBuscarPelicula(error, loading) });
   }
@@ -57,7 +57,7 @@ export class HomePage {
     };
     this.navCtrl.push('listado-peliculas', data);
     console.log('successBuscarPelicula', resultado);
-  //  this.navCtrl.setRoot('listado-peliculas', data);
+   this.navCtrl.setRoot('listado-peliculas', data);
 
   }
   private errorBuscarPelicula(error, loading): void {
