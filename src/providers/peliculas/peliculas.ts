@@ -6,8 +6,8 @@ export class PeliculasProvider {
   private nombrePelicula: any;
 
   constructor(public http: HttpClient) {
-    this.nombrePelicula = 'Texto uno.';
-    console.log('Hello PeliculasProvider Provider');
+    this.nombrePelicula = '';
+    console.log('provider 123');
   }
 
 

@@ -10,7 +10,6 @@
 </ion-header>
 
 
-
 <ion-content padding>
   <ion-row>
 
@@ -22,9 +21,9 @@
     <ion-col>
       <ion-item>
         <ion-label stacked>Ingrese el nombre de la pelicula</ion-label>
-        <ion-input color="primary" clearInput></ion-input>
+      <ion-input color="primary" clearInput [(ngModel)]="datosBusqueda.texto"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
-  <button ion-button block (click)="entrar();" uppercase [disabled]="buscandoPeliculas">Buscar</button>
+  <button ion-button block (click)="buscarPelicula();" uppercase >Buscar</button>
 </ion-content>
