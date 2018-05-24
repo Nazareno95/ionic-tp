@@ -22,20 +22,16 @@ export class ListadoPeliculasPage {
     private modalCtrl: ModalController) {
     this.arrayPeliculas = [];
   }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListadoPeliculasPage');
-    this.listadoPeliculas = this.navParams.get('peliculasLista');
+    this.listadoPeliculas = this.navParams.get('PeliculaLista');
 
     if (!this.listadoPeliculas) {
       this.listadoPeliculas = [];
     }
-
-    console.log('nombrePeliculas', this.nombrePeliculas)
-    this.arrayPeliculas = this.listadoPeliculas.Search;
+   // console.log('nombrePeliculas', this.nombrePeliculas);
+    this.arrayPeliculas = this.listadoPeliculas.pelicula;
     console.log('this.listadoPeliculas', this.listadoPeliculas);
-//    this.arrayPeliculas = this.listadoPeliculas.Search;
-//    console.log('this.listadoPeliculas', this.listadoPeliculas);
   }
 
   public goDetallePelicula(pelicula: any): void {

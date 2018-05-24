@@ -45,19 +45,19 @@ export class HomePage {
     }
     let loading = this.loadingCtrl.create({ content: 'Buscando Peliculas..' });
     loading.present();
-    this.peliculasProvider.
-    buscarPelicula(this.datosBusqueda.texto).then(
+    this.peliculasProvider.buscarPelicula(this.datosBusqueda.texto).then(
       (success) => { this.successBuscarPelicula(success, loading) },
       (error) => { this.errorBuscarPelicula(error, loading) });
   }
   private successBuscarPelicula(resultado, loading): void {
     loading.dismiss();
+    console.log('resultado de succesbuscarPelicula', resultado);
     let data = {
-      PeliculaLista: resultado.results
+      PeliculaLista: resultado.Search
     };
-    this.navCtrl.push('listado-peliculas', data);
+    this.navCtrl.setRoot('listado-peliculas', data);
     console.log('successBuscarPelicula', resultado);
-   this.navCtrl.setRoot('listado-peliculas', data);
+   this.navCtrl.push('listado-peliculas', data);
 
   }
   private errorBuscarPelicula(error, loading): void {

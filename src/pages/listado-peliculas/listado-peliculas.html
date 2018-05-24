@@ -5,7 +5,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Resultados de {{nombrePeliculas}} </ion-title>
+    <ion-title>Resultados de {{arrayPeliculas}} </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -14,7 +14,7 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col col-6 col-md-3 *ngFor="let pelicula of arrayPeliculas">
+      <ion-col col-6 col-md-3 *ngFor="let pelicula of listadoPeliculas">
         <ion-card>
           <img [src]="pelicula.Poster" [alt]="'Poster de película ' + pelicula.Title" [title]="'Poster de película ' + pelicula.Title"
                (click)="goDetallePelicula(pelicula);">
@@ -24,7 +24,7 @@
             </ion-card-title>
           </ion-card-content>
         </ion-card>
-        <ion-card-content>
+       <ion-card-content>
           <ion-row>
             <ion-col col-6>
               <button ion-button clear icon-start color="imdb" (click)="abrirLinkImdb(pelicula);">
@@ -41,6 +41,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <h1>hola</h1>
 </ion-content>
 
