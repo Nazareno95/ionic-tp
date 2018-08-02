@@ -19,7 +19,7 @@ export class PeliculasProvider {
     return this.nombrePelicula;
   }
 
-  public buscarPelicula(nombre: string): any {
+  public buscarPelicula(nombre: string): Promise<any> {
     let url = 'http://www.omdbapi.com/?apikey=cf36c0f0&s=' + nombre;
     return this.http.get(url).toPromise();
   }

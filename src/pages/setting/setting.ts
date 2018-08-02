@@ -25,5 +25,5 @@ export class SettingPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingPage');
   }
-
+  
 }

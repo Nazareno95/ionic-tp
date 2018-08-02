@@ -14,6 +14,7 @@ export class ListadoPeliculasPage {
   public listadoPeliculas;
   public arrayPeliculas: any[];
   public nombrePeliculas: String;
+  busqueda: string;
 
   constructor(
     public navCtrl: NavController,
@@ -25,6 +26,7 @@ export class ListadoPeliculasPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListadoPeliculasPage');
     this.listadoPeliculas = this.navParams.get('PeliculaLista');
+    this.busqueda = this.navParams.get('busqueda');
 
     if (!this.listadoPeliculas) {
       this.listadoPeliculas = [];
